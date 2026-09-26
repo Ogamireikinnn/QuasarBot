@@ -1,6 +1,6 @@
 # Terms of Service for QuasarBot
 
-**Last Updated: July 8, 2026**
+**Last Updated: September 27, 2026**
 
 ## 1. Acceptance of Terms
 
@@ -18,14 +18,16 @@ QuasarBot is a Discord bot that provides:
 - **Server Configuration** - Custom prefixes, channels, and roles per server
 - **Logging** - Server event logging with dedicated log channels
 - **Welcome Messages** - Custom welcome messages with embed support
-- **Leaderboard** - Ad posting statistics for premium servers
+- **AutoMod Integration** - Discord's native AutoMod with keyword, spam, link, and mention filtering
+- **Anti-Nuke Protection** - Monitoring and punishing rapid destructive actions
+- **Trap Channel** - Automatic ban for accounts that post in a designated trap channel
 
 ### 2.2 Alliance Management
 - **Rep Tracking** - Database tracking of all representative mentions
 - **Ad Cleanup** - Automatic deletion of ads when representatives leave
 - **Rep Actions** - Configurable ban or delete-only actions for leaving reps
 - **Bypass Roles** - Custom bypass roles for staff members
-- **Daily Scans** - Automatic scanning to catch leavers
+- **Daily Scans** - Automatic scanning to catch leavers and reassign roles
 - **Role Management** - Dedicated role logs and tracking
 
 ## 3. User Obligations
@@ -76,11 +78,25 @@ Administrators configuring auto responders are responsible for:
 - Keeping responses accurate and up to date
 - Setting proper category restrictions when needed
 
-### 4.5 Leaderboard System
-Administrators using the leaderboard system acknowledge that:
-- This is a premium feature requiring bot owner activation
-- Data can be reset using lb reset command
-- Historical ad data can be scanned using lb scan command
+### 4.5 Anti-Nuke Protection
+Administrators who enable anti-nuke acknowledge that:
+- The bot monitors channel, role, ban, and kick actions
+- Users who exceed configured limits may be automatically banned or kicked
+- Bypass users and roles can be configured to exempt trusted members
+- Warnings reset daily
+- Misconfigured limits may result in unintended punishments
+
+### 4.6 Trap Channel
+Administrators who configure a trap channel acknowledge that:
+- Any account that posts in the trap channel will be immediately banned
+- The trap channel should never be used for normal conversation
+- They are responsible for informing their members about the trap channel
+
+### 4.7 AutoMod
+Administrators who configure AutoMod acknowledge that:
+- Rules created through the bot are Discord's native AutoMod rules
+- They are responsible for configuring appropriate filters for their community
+- Clearing rules through the bot will delete all AutoMod rules configured
 
 ## 5. Intellectual Property
 
@@ -137,7 +153,6 @@ We reserve the right to:
 Users may stop using the Bot at any time by:
 - Removing the Bot from their server (server administrators)
 - Ceasing to use Bot commands (individual users)
-- Using resetguild command to clear all server data
 
 ## 9. Privacy
 
@@ -174,7 +189,7 @@ If any provision of these Terms is found to be unenforceable or invalid, that pr
 For questions, concerns, or support regarding these Terms of Service:
 - Contact the bot owner through Discord: quasar (ID: 956902107355689061)
 - Join our support server: https://discord.gg/pkXheu7aY7
-- Use the about command for bot information
+- Use `/about` for bot information
 
 ---
 
