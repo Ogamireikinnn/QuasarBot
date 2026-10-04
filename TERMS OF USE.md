@@ -1,196 +1,251 @@
-# Terms of Service for QuasarBot
+Terms of Service for QuasarBot
 
-**Last Updated: September 27, 2026**
+Last Updated: October 4, 2026
 
-## 1. Acceptance of Terms
+1. Acceptance of Terms
 
 By inviting or using QuasarBot ("the Bot") in your Discord server, you agree to be bound by these Terms of Service ("Terms"). These Terms apply to all users, server administrators, and server members who interact with the Bot. If you do not agree with any part of these terms, you are prohibited from using the Bot.
 
-## 2. Description of Service
+2. Description of Service
 
 QuasarBot is a Discord bot that provides:
 
-### 2.1 Core Features
-- **Auto Responders** - Custom triggers and responses for automated replies
-- **Advertisement Tracking** - Track representative mentions in ad channels
-- **Auto-Moderation (J2L)** - Automatic banning of users who leave within 24 hours
-- **Rep Role Management** - Automatic role assignment for representatives
-- **Server Configuration** - Custom prefixes, channels, and roles per server
-- **Logging** - Server event logging with dedicated log channels
-- **Welcome Messages** - Custom welcome messages with embed support
-- **AutoMod Integration** - Discord's native AutoMod with keyword, spam, link, and mention filtering
-- **Anti-Nuke Protection** - Monitoring and punishing rapid destructive actions
-- **Trap Channel** - Automatic ban for accounts that post in a designated trap channel
+2.1 Core Features
 
-### 2.2 Alliance Management
-- **Rep Tracking** - Database tracking of all representative mentions
-- **Ad Cleanup** - Automatic deletion of ads when representatives leave
-- **Rep Actions** - Configurable ban or delete-only actions for leaving reps
-- **Bypass Roles** - Custom bypass roles for staff members
-- **Daily Scans** - Automatic scanning to catch leavers and reassign roles
-- **Role Management** - Dedicated role logs and tracking
+· Auto Responders — Custom triggers and responses for automated replies
+· Auto Reactions — Automatically react to messages in configured channels with custom emojis
+· Advertisement Tracking — Track representative mentions in ad channels
+· Auto-Moderation (J2L) — Automatic banning of users who leave within 24 hours
+· Rep Role Management — Automatic role assignment for representatives
+· Server Configuration — Channels, roles, and settings per server
+· Logging — Server event logging with dedicated log channels
+· Welcome Messages — Custom welcome messages with embed support
+· AutoMod Integration — Discord's native AutoMod with keyword, spam, link, and mention filtering
+· Anti-Nuke Protection — Monitoring and punishing rapid destructive actions
+· Trap Channel — Automatic ban or kick for accounts that post in a designated trap channel
+· Support Tickets — Private ticket channels for user reports via /report
 
-## 3. User Obligations
+2.2 Alliance Management
 
-### 3.1 Compliance
+· Rep Tracking — Database tracking of all representative mentions
+· Ad Cleanup — Automatic deletion of ads when representatives leave
+· Rep Actions — Configurable ban or delete-only actions for leaving reps
+· Bypass Roles — Custom bypass roles for staff members
+· Daily Scans — Automatic scanning to catch leavers and reassign roles
+· Role Management — Dedicated role logs and tracking
+
+3. User Obligations
+
+3.1 Compliance
+
 By using QuasarBot, you agree to:
-- Comply with Discord's Terms of Service
-- Comply with Discord's Community Guidelines
-- Follow the rules of the Discord server you are in
-- Use the Bot only for its intended purposes
 
-### 3.2 Prohibited Activities
+· Comply with Discord's Terms of Service
+· Comply with Discord's Community Guidelines
+· Follow the rules of the Discord server you are in
+· Use the Bot only for its intended purposes
+
+3.2 Prohibited Activities
+
 Users are strictly prohibited from:
-- Exploiting bugs, glitches, or vulnerabilities
-- Using the Bot for harassment, spam, or malicious activities
-- Using automated scripts, self-bots, or macros with the Bot
-- Impersonating the Bot or its owner
-- Using the Bot to distribute harmful content
-- Attempting to crash, overload, or disrupt the Bot's operation
-- Reverse engineering or copying the Bot's code
 
-## 4. Server Administrator Responsibilities
+· Exploiting bugs, glitches, or vulnerabilities
+· Using the Bot for harassment, spam, or malicious activities
+· Using automated scripts, self-bots, or macros with the Bot
+· Impersonating the Bot or its owner
+· Using the Bot to distribute harmful content
+· Attempting to crash, overload, or disrupt the Bot's operation
+· Reverse engineering or copying the Bot's code
 
-### 4.1 Configuration
+4. Server Administrator Responsibilities
+
+4.1 Configuration
+
 Server administrators are responsible for:
-- Properly configuring bot permissions and channels
-- Understanding the implications of enabled features
-- Regularly reviewing bot activity in their server
-- Ensuring bot usage complies with their server rules
 
-### 4.2 J2L (Join-to-Leave) Feature
+· Properly configuring bot permissions and channels
+· Understanding the implications of enabled features
+· Regularly reviewing bot activity in their server
+· Ensuring bot usage complies with their server rules
+
+4.2 J2L (Join-to-Leave) Feature
+
 Administrators who enable J2L acknowledge that:
-- Users who leave within 24 hours of joining may be automatically banned
-- This feature is irreversible without manual unban
-- They are responsible for managing J2L-related bans
 
-### 4.3 Advertisement System
+· Users who leave within 24 hours of joining may be automatically banned
+· This feature is irreversible without manual unban
+· They are responsible for managing J2L-related bans
+
+4.3 Advertisement System
+
 Administrators using the ad tracking system agree to:
-- Ensure advertised content complies with Discord policies
-- Monitor ad channels for inappropriate content
-- Take responsibility for content posted through ad channels
-- Understand rep actions (ban or delete) for leaving representatives
 
-### 4.4 Auto Responders
+· Ensure advertised content complies with Discord policies
+· Monitor ad channels for inappropriate content
+· Take responsibility for content posted through ad channels
+· Understand rep actions (ban or delete) for leaving representatives
+
+4.4 Auto Responders
+
 Administrators configuring auto responders are responsible for:
-- Ensuring response content complies with Discord policies
-- Managing staff-only restrictions appropriately
-- Keeping responses accurate and up to date
-- Setting proper category restrictions when needed
 
-### 4.5 Anti-Nuke Protection
+· Ensuring response content complies with Discord policies
+· Managing staff-only restrictions appropriately
+· Keeping responses accurate and up to date
+· Setting proper category restrictions when needed
+
+4.5 Auto Reactions
+
+Administrators configuring auto reactions acknowledge that:
+
+· The bot will react to every new message in the configured channels
+· They are responsible for choosing appropriate emojis for their community
+· The bot requires Add Reactions permission in those channels
+· Misuse of reactions may be flagged by Discord
+
+4.6 Anti-Nuke Protection
+
 Administrators who enable anti-nuke acknowledge that:
-- The bot monitors channel, role, ban, and kick actions
-- Users who exceed configured limits may be automatically banned or kicked
-- Bypass users and roles can be configured to exempt trusted members
-- Warnings reset daily
-- Misconfigured limits may result in unintended punishments
 
-### 4.6 Trap Channel
+· The bot monitors channel, role, ban, and kick actions
+· Users who exceed configured limits may be automatically banned or kicked
+· Bypass users and roles can be configured to exempt trusted members
+· Warnings reset daily
+· Misconfigured limits may result in unintended punishments
+
+4.7 Trap Channel
+
 Administrators who configure a trap channel acknowledge that:
-- Any account that posts in the trap channel will be immediately banned
-- The trap channel should never be used for normal conversation
-- They are responsible for informing their members about the trap channel
 
-### 4.7 AutoMod
+· Any account that posts in the trap channel will be immediately banned or kicked (based on the configured action)
+· The trap channel should never be used for normal conversation
+· They are responsible for informing their members about the trap channel
+
+4.8 AutoMod
+
 Administrators who configure AutoMod acknowledge that:
-- Rules created through the bot are Discord's native AutoMod rules
-- They are responsible for configuring appropriate filters for their community
-- Clearing rules through the bot will delete all AutoMod rules configured
 
-## 5. Intellectual Property
+· Rules created through the bot are Discord's native AutoMod rules
+· They are responsible for configuring appropriate filters for their community
+· Clearing rules through the bot will delete all AutoMod rules configured
 
-### 5.1 Bot Ownership
-- QuasarBot's code, design, and original content are proprietary
-- The Bot name, logo, and branding are protected
-- Users may not copy, modify, or redistribute the Bot's code
+4.9 Support Tickets
 
-### 5.2 User Content
-- Users retain ownership of content they create through the Bot
-- By using the Bot, users grant license for the Bot to process and display their content
-- Server administrators are responsible for content posted in their servers
+Administrators and users who use /report acknowledge that:
 
-## 6. Limitation of Liability
+· A private ticket channel will be created in the support server
+· The reporter's user ID, username, and originating server will be visible to support staff
+· Ticket content is visible to the bot owner and authorized support staff
 
-### 6.1 Service Provided "As Is"
+5. Intellectual Property
+
+5.1 Bot Ownership
+
+· QuasarBot's code, design, and original content are proprietary
+· The Bot name, logo, and branding are protected
+· Users may not copy, modify, or redistribute the Bot's code
+
+5.2 User Content
+
+· Users retain ownership of content they create through the Bot
+· By using the Bot, users grant license for the Bot to process and display their content
+· Server administrators are responsible for content posted in their servers
+
+6. Limitation of Liability
+
+6.1 Service Provided "As Is"
+
 QuasarBot is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.
 
-### 6.2 No Liability
-We shall not be liable for:
-- Server disruptions, data loss, or bot downtime
-- Actions taken by server administrators using Bot features
-- Content posted by users through Bot commands
-- Any indirect, incidental, or consequential damages
-- Damages arising from use or inability to use the Bot
+6.2 No Liability
 
-### 6.3 Maximum Liability
+We shall not be liable for:
+
+· Server disruptions, data loss, or bot downtime
+· Actions taken by server administrators using Bot features
+· Content posted by users through Bot commands
+· Any indirect, incidental, or consequential damages
+· Damages arising from use or inability to use the Bot
+
+6.3 Maximum Liability
+
 In jurisdictions that do not allow the exclusion of certain warranties, our liability is limited to the maximum extent permitted by law.
 
-## 7. Service Availability
+7. Service Availability
 
-### 7.1 Uptime
-- We strive to maintain high availability but do not guarantee 24/7 uptime
-- The Bot may be offline for maintenance, updates, or technical issues
-- We are not liable for any consequences of Bot unavailability
+7.1 Uptime
 
-### 7.2 Modifications
+· We strive to maintain high availability but do not guarantee 24/7 uptime
+· The Bot may be offline for maintenance, updates, or technical issues
+· We are not liable for any consequences of Bot unavailability
+
+7.2 Modifications
+
 We reserve the right to:
-- Add, modify, or remove features without prior notice
-- Change command syntax or functionality
-- Update the Bot's design and behavior
-- Discontinue the Bot entirely at our discretion
 
-## 8. Termination
+· Add, modify, or remove features without prior notice
+· Change command syntax or functionality
+· Update the Bot's design and behavior
+· Discontinue the Bot entirely at our discretion
 
-### 8.1 By the Bot Owner
+8. Termination
+
+8.1 By the Bot Owner
+
 We reserve the right to:
-- Remove the Bot from any server without notice or reason
-- Ban users from using Bot features temporarily or permanently
-- Delete or reset user data in cases of abuse
-- Terminate the entire service at any time
 
-### 8.2 By Users
+· Remove the Bot from any server without notice or reason
+· Ban users from using Bot features temporarily or permanently
+· Delete or reset user data in cases of abuse
+· Terminate the entire service at any time
+
+8.2 By Users
+
 Users may stop using the Bot at any time by:
-- Removing the Bot from their server (server administrators)
-- Ceasing to use Bot commands (individual users)
 
-## 9. Privacy
+· Removing the Bot from their server (server administrators)
+· Ceasing to use Bot commands (individual users)
+
+9. Privacy
 
 Use of QuasarBot is also governed by our Privacy Policy. By using the Bot, you consent to data collection and usage as described in the Privacy Policy.
 
-## 10. Third-Party Services
+10. Third-Party Services
 
-- QuasarBot operates on Discord's platform and is subject to Discord's Terms of Service
-- We are not affiliated with, endorsed by, or sponsored by Discord Inc.
-- Database services are provided by PostgreSQL/SQLite
-- Voting is available through top.gg
+· QuasarBot operates on Discord's platform and is subject to Discord's Terms of Service
+· We are not affiliated with, endorsed by, or sponsored by Discord Inc.
+· Database services are provided by PostgreSQL/SQLite
+· Voting is available through top.gg
 
-## 11. Changes to Terms
+11. Changes to Terms
 
-### 11.1 Modifications
-- We may modify these Terms at any time
-- Changes become effective immediately upon posting
-- Continued use of the Bot after changes constitutes acceptance
+11.1 Modifications
 
-### 11.2 Notification
-- Major changes will be announced through the Bot or support channels when possible
-- It is your responsibility to review these Terms periodically
+· We may modify these Terms at any time
+· Changes become effective immediately upon posting
+· Continued use of the Bot after changes constitutes acceptance
 
-## 12. Governing Law
+11.2 Notification
+
+· Major changes will be announced through the Bot or support channels when possible
+· It is your responsibility to review these Terms periodically
+
+12. Governing Law
 
 These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms shall first be attempted to be resolved through good-faith communication.
 
-## 13. Severability
+13. Severability
 
 If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
 
-## 14. Contact Information
+14. Contact Information
 
 For questions, concerns, or support regarding these Terms of Service:
-- Contact the bot owner through Discord: quasar (ID: 956902107355689061)
-- Join our support server: https://discord.gg/pkXheu7aY7
-- Use `/about` for bot information
+
+· Contact the bot owner through Discord: quasar (ID: 956902107355689061)
+· Join our support server: https://discord.gg/kXwAQRNq2d
+· Use /report to open a support ticket
 
 ---
 
-**By using QuasarBot, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.**
+By using QuasarBot, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
