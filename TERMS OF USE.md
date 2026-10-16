@@ -1,6 +1,6 @@
 Terms of Service for QuasarBot
 
-Last Updated: October 4, 2026
+Last Updated: October 16, 2026
 
 1. Acceptance of Terms
 
@@ -20,8 +20,6 @@ QuasarBot is a Discord bot that provides:
 · Server Configuration — Channels, roles, and settings per server
 · Logging — Server event logging with dedicated log channels
 · Welcome Messages — Custom welcome messages with embed support
-· AutoMod Integration — Discord's native AutoMod with keyword, spam, link, and mention filtering
-· Anti-Nuke Protection — Monitoring and punishing rapid destructive actions
 · Trap Channel — Automatic ban or kick for accounts that post in a designated trap channel
 · Support Tickets — Private ticket channels for user reports via /report
 
@@ -30,7 +28,6 @@ QuasarBot is a Discord bot that provides:
 · Rep Tracking — Database tracking of all representative mentions
 · Ad Cleanup — Automatic deletion of ads when representatives leave
 · Rep Actions — Configurable ban or delete-only actions for leaving reps
-· Bypass Roles — Custom bypass roles for staff members
 · Daily Scans — Automatic scanning to catch leavers and reassign roles
 · Role Management — Dedicated role logs and tracking
 
@@ -103,17 +100,7 @@ Administrators configuring auto reactions acknowledge that:
 · The bot requires Add Reactions permission in those channels
 · Misuse of reactions may be flagged by Discord
 
-4.6 Anti-Nuke Protection
-
-Administrators who enable anti-nuke acknowledge that:
-
-· The bot monitors channel, role, ban, and kick actions
-· Users who exceed configured limits may be automatically banned or kicked
-· Bypass users and roles can be configured to exempt trusted members
-· Warnings reset daily
-· Misconfigured limits may result in unintended punishments
-
-4.7 Trap Channel
+4.6 Trap Channel
 
 Administrators who configure a trap channel acknowledge that:
 
@@ -121,15 +108,7 @@ Administrators who configure a trap channel acknowledge that:
 · The trap channel should never be used for normal conversation
 · They are responsible for informing their members about the trap channel
 
-4.8 AutoMod
-
-Administrators who configure AutoMod acknowledge that:
-
-· Rules created through the bot are Discord's native AutoMod rules
-· They are responsible for configuring appropriate filters for their community
-· Clearing rules through the bot will delete all AutoMod rules configured
-
-4.9 Support Tickets
+4.7 Support Tickets
 
 Administrators and users who use /report acknowledge that:
 
@@ -159,7 +138,7 @@ QuasarBot is provided on an "as is" and "as available" basis without warranties 
 
 6.2 No Liability
 
-We shall not be liable for:
+The Bot owner shall not be liable for:
 
 · Server disruptions, data loss, or bot downtime
 · Actions taken by server administrators using Bot features
@@ -169,30 +148,30 @@ We shall not be liable for:
 
 6.3 Maximum Liability
 
-In jurisdictions that do not allow the exclusion of certain warranties, our liability is limited to the maximum extent permitted by law.
+In jurisdictions that do not allow the exclusion of certain warranties, liability is limited to the maximum extent permitted by law.
 
 7. Service Availability
 
 7.1 Uptime
 
-· We strive to maintain high availability but do not guarantee 24/7 uptime
+· The Bot aims to maintain high availability but does not guarantee 24/7 uptime
 · The Bot may be offline for maintenance, updates, or technical issues
-· We are not liable for any consequences of Bot unavailability
+· The Bot owner is not liable for any consequences of Bot unavailability
 
 7.2 Modifications
 
-We reserve the right to:
+The Bot owner reserves the right to:
 
 · Add, modify, or remove features without prior notice
 · Change command syntax or functionality
 · Update the Bot's design and behavior
-· Discontinue the Bot entirely at our discretion
+· Discontinue the Bot entirely at their discretion
 
 8. Termination
 
 8.1 By the Bot Owner
 
-We reserve the right to:
+The Bot owner reserves the right to:
 
 · Remove the Bot from any server without notice or reason
 · Ban users from using Bot features temporarily or permanently
@@ -208,20 +187,19 @@ Users may stop using the Bot at any time by:
 
 9. Privacy
 
-Use of QuasarBot is also governed by our Privacy Policy. By using the Bot, you consent to data collection and usage as described in the Privacy Policy.
+Use of QuasarBot is also governed by the Privacy Policy. By using the Bot, you consent to data collection and usage as described in the Privacy Policy.
 
 10. Third-Party Services
 
 · QuasarBot operates on Discord's platform and is subject to Discord's Terms of Service
-· We are not affiliated with, endorsed by, or sponsored by Discord Inc.
-· Database services are provided by PostgreSQL/SQLite
+· QuasarBot is not affiliated with, endorsed by, or sponsored by Discord Inc.
 · Voting is available through top.gg
 
 11. Changes to Terms
 
 11.1 Modifications
 
-· We may modify these Terms at any time
+· These Terms may be modified at any time
 · Changes become effective immediately upon posting
 · Continued use of the Bot after changes constitutes acceptance
 
