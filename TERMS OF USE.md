@@ -1,187 +1,51 @@
-# Terms of Service for QuasarBot
+# Terms of Use
 
-**Last Updated:** October 16, 2026
+Last updated: November 1, 2026
 
-## 1. Acceptance of Terms
+These terms apply to anyone who adds QuasarBot ("the bot") to a server or uses its commands. By using the bot, you agree to these terms.
 
-By inviting or using QuasarBot ("the Bot") in your Discord server, you agree to be bound by these Terms of Service ("Terms"). These Terms apply to all users, server administrators, and server members who interact with the Bot. If you do not agree with any part of these terms, you are prohibited from using the Bot.
+## 1. What the bot does
 
-## 2. Description of Service
+QuasarBot helps server owners and admins manage partnership ads, rep roles, moderation, auto-responders, auto-reactions, welcome messages, and support tickets.
 
-QuasarBot is a Discord bot that provides:
+## 2. Who can use it
 
-### 2.1 Core Features
-* **Auto Responders** — Custom triggers and responses for automated replies
-* **Auto Reactions** — Automatically react to messages in configured channels with custom emojis
-* **Advertisement Tracking** — Track representative mentions in ad channels
-* **Auto-Moderation (J2L)** — Automatic banning of users who leave within 24 hours
-* **Rep Role Management** — Automatic role assignment for representatives
-* **Server Configuration** — Channels, roles, and settings per server
-* **Logging** — Server event logging with dedicated log channels
-* **Welcome Messages** — Custom welcome messages with embed support
-* **Trap Channel** — Automatic ban or kick for accounts that post in a designated trap channel
-* **Support Tickets** — Private ticket channels for user reports via /report
+You must follow Discord's Terms of Service and Community Guidelines. Server admins are responsible for how the bot is used in their server, including the rules they set and the members they give access to.
 
-### 2.2 Alliance Management
-* **Rep Tracking** — Database tracking of all representative mentions
-* **Ad Cleanup** — Automatic deletion of ads when representatives leave
-* **Rep Actions** — Configurable ban or delete-only actions for leaving reps
-* **Daily Scans** — Automatic scanning to catch leavers and reassign roles
-* **Role Management** — Dedicated role logs and tracking
+## 3. Acceptable use
 
-## 3. User Obligations
+You must not use the bot to:
+- Spam, flood, or post unwanted ads outside the ad rules set by the server.
+- Mention @everyone, @here, or roles to get attention when they are not needed.
+- Harass, threaten, or impersonate other people.
+- Try to break, overload, or get around the bot's limits or permissions.
+- Collect other people's information without their consent.
+- Break any law or Discord's rules.
 
-### 3.1 Compliance
-By using QuasarBot, you agree to:
-* Comply with Discord's Terms of Service
-* Comply with Discord's Community Guidelines
-* Follow the rules of the Discord server you are in
-* Use the Bot only for its intended purposes
+## 4. Support tickets
 
-### 3.2 Prohibited Activities
-Users are strictly prohibited from:
-* Exploiting bugs, glitches, or vulnerabilities
-* Using the Bot for harassment, spam, or malicious activities
-* Using automated scripts, self-bots, or macros with the Bot
-* Impersonating the Bot or its owner
-* Using the Bot to distribute harmful content
-* Attempting to crash, overload, or disrupt the Bot's operation
-* Reverse engineering or copying the Bot's code
+Tickets are for real support questions about the bot. Do not open tickets to spam or to send abusive messages. Staff may close tickets at any time. When a ticket is closed, its messages are saved to the bot owner's private log channel, as described in the Privacy Policy.
 
-## 4. Server Administrator Responsibilities
+## 5. Moderation and enforcement
 
-### 4.1 Configuration
-Server administrators are responsible for:
-* Properly configuring bot permissions and channels
-* Understanding the implications of enabled features
-* Regularly reviewing bot activity in their server
-* Ensuring bot usage complies with their server rules
+The bot may remove messages, remove roles, ban, or kick members, according to the rules set by the server admin. The bot owner may restrict or remove access to the bot for anyone who breaks these terms.
 
-### 4.2 J2L (Join-to-Leave) Feature
-Administrators who enable J2L acknowledge that:
-* Users who leave within 24 hours of joining may be automatically banned
-* This feature is irreversible without manual unban
-* They are responsible for managing J2L-related bans
+## 6. Availability
 
-### 4.3 Advertisement System
-Administrators using the ad tracking system agree to:
-* Ensure advertised content complies with Discord policies
-* Monitor ad channels for inappropriate content
-* Take responsibility for content posted through ad channels
-* Understand rep actions (ban or delete) for leaving representatives
+The bot is provided free of charge and "as is." We do not guarantee that it will always be online, error-free, or available. Features may be changed, added, or removed at any time.
 
-### 4.4 Auto Responders
-Administrators configuring auto responders are responsible for:
-* Ensuring response content complies with Discord policies
-* Managing staff-only restrictions appropriately
-* Keeping responses accurate and up to date
-* Setting proper category restrictions when needed
+## 7. Limitation of liability
 
-### 4.5 Auto Reactions
-Administrators configuring auto reactions acknowledge that:
-* The bot will react to every new message in the configured channels
-* They are responsible for choosing appropriate emojis for their community
-* The bot requires Add Reactions permission in those channels
-* Misuse of reactions may be flagged by Discord
-
-### 4.6 Trap Channel
-Administrators who configure a trap channel acknowledge that:
-* Any account that posts in the trap channel will be immediately banned or kicked (based on the configured action)
-* The trap channel should never be used for normal conversation
-* They are responsible for informing their members about the trap channel
-
-### 4.7 Support Tickets
-Administrators and users who use /report acknowledge that:
-* A private ticket channel will be created in the support server
-* The reporter's user ID, username, and originating server will be visible to support staff
-* Ticket content is visible to the bot owner and authorized support staff
-
-## 5. Intellectual Property
-
-### 5.1 Bot Ownership
-* QuasarBot's code, design, and original content are proprietary
-* The Bot name, logo, and branding are protected
-* Users may not copy, modify, or redistribute the Bot's code
-
-### 5.2 User Content
-* Users retain ownership of content they create through the Bot
-* By using the Bot, users grant license for the Bot to process and display their content
-* Server administrators are responsible for content posted in their servers
-
-## 6. Limitation of Liability
-
-### 6.1 Service Provided "As Is"
-QuasarBot is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.
-
-### 6.2 No Liability
-The Bot owner shall not be liable for:
-* Server disruptions, data loss, or bot downtime
-* Actions taken by server administrators using Bot features
-* Content posted by users through Bot commands
-* Any indirect, incidental, or consequential damages
-* Damages arising from use or inability to use the Bot
-
-### 6.3 Maximum Liability
-In jurisdictions that do not allow the exclusion of certain warranties, liability is limited to the maximum extent permitted by law.
-
-## 7. Service Availability
-
-### 7.1 Uptime
-* The Bot aims to maintain high availability but does not guarantee 24/7 uptime
-* The Bot may be offline for maintenance, updates, or technical issues
-* The Bot owner is not liable for any consequences of Bot unavailability
-
-### 7.2 Modifications
-The Bot owner reserves the right to:
-* Add, modify, or remove features without prior notice
-* Change command syntax or functionality
-* Update the Bot's design and behavior
-* Discontinue the Bot entirely at their discretion
+To the extent allowed by law, the bot owner is not responsible for losses caused by using the bot, including lost messages, lost roles, or actions taken by moderation features. Server admins are responsible for checking settings and actions in their server.
 
 ## 8. Termination
 
-### 8.1 By the Bot Owner
-The Bot owner reserves the right to:
-* Remove the Bot from any server without notice or reason
-* Ban users from using Bot features temporarily or permanently
-* Delete or reset user data in cases of abuse
-* Terminate the entire service at any time
+You may stop using the bot at any time by removing it from your server. We may stop providing the bot to anyone who breaks these terms.
 
-### 8.2 By Users
-Users may stop using the Bot at any time by:
-* Removing the Bot from their server (server administrators)
-* Ceasing to use Bot commands (individual users)
+## 9. Changes to these terms
 
-## 9. Privacy
-Use of QuasarBot is also governed by the Privacy Policy. By using the Bot, you consent to data collection and usage as described in the Privacy Policy.
+We may update these terms. The "Last updated" date at the top shows when they last changed. Continued use of the bot after an update means you accept the new terms.
 
-## 10. Third-Party Services
-* QuasarBot operates on Discord's platform and is subject to Discord's Terms of Service
-* QuasarBot is not affiliated with, endorsed by, or sponsored by Discord Inc.
-* Voting is available through top.gg
+## 10. Contact
 
-## 11. Changes to Terms
-
-### 11.1 Modifications
-* These Terms may be modified at any time
-* Changes become effective immediately upon posting
-* Continued use of the Bot after changes constitutes acceptance
-
-### 11.2 Notification
-* Major changes will be announced through the Bot or support channels when possible
-* It is your responsibility to review these Terms periodically
-
-## 12. Governing Law
-These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms shall first be attempted to be resolved through good-faith communication.
-
-## 13. Severability
-If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
-
-## 14. Contact Information
-For questions, concerns, or support regarding these Terms of Service:
-* Join the support server: [https://discord.gg/kXwAQRNq2d](https://discord.gg/kXwAQRNq2d)
-* Use `/report` to open a support ticket
-
----
-
-By using QuasarBot, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+For questions about these terms, join the support server: https://discord.gg/kXwAQRNq2d
