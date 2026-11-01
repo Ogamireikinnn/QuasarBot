@@ -1,81 +1,76 @@
-# Privacy Policy for QuasarBot
+# Privacy Policy
 
-**Last Updated:** October 16, 2026
+Last updated: November 1, 2026
 
-## 1. Introduction
-This Privacy Policy explains how QuasarBot ("the Bot") collects, uses, and protects information when you use it. By using QuasarBot, you agree to the data practices described in this policy.
+This policy explains what information QuasarBot ("the bot") collects, how it is used, and how long it is kept. By adding the bot to your server or using its commands, you agree to this policy.
 
-## 2. Information Collected 
+## 1. Information the bot collects
 
-### 2.1 Automatically Collected Data
-When you interact with QuasarBot, the following is automatically collected:
+**Server settings.** When a server admin runs `/setup`, `/welcome` commands, `/autoreact`, `/autoresponder`, or `/timezone`, the bot stores the chosen channel IDs, role IDs, the server's timezone, and the text of any welcome messages and auto-responders.
 
-* **Discord User ID** — Used to identify your account for alliance and representative tracking
-* **Discord Server (Guild) ID** — Used to store server-specific settings
-* **Message IDs** — Used for advertisement tracking and cleanup when ads are deleted
-* **Channel IDs** — Used for ad channel, log channel, welcome channel, trap channel, and auto-reaction configuration
-* **Role IDs** — Used for representative role configuration
-* **Command Usage** — Which commands you use for cooldown management
+**Partnership records.** When an ad is posted in a configured ad channel, the bot stores the IDs of the mentioned users, the message ID, and the channel ID. It does not store the text of ads. The bot uses these records to assign and remove rep roles.
 
-### 2.2 Data You Provide
-* **Auto Responder Triggers/Responses** — Configured by server administrators
-* **Auto Reaction Emojis** — Configured by server administrators per channel
-* **Welcome Messages** — Custom welcome messages configured by server administrators
-* **Server Configuration** — Ad categories, rep actions, and other settings
+**Member IDs and moderation records.** The bot stores user IDs for moderation actions such as bans, kicks, trap-channel punishments, and join-and-leave (J2L) checks, along with the reason and timestamp.
 
-## 3. How the Data Is Used 
-Collected data is used strictly for:
+**Ticket transcripts.** When a ticket is closed with `/close`, the bot saves a plain-text copy of the ticket's messages, including authors, timestamps, message text, and attachment links. The transcript is sent to the bot owner's private log channel.
 
-* **Bot Functionality** — Alliance management, auto responders, welcome messages, and server management
-* **Server Configuration** — Storing your server's custom settings and preferences
-* **Advertisement Tracking** — Tracking representative mentions and managing rep roles in ad channels
-* **Auto-Moderation** — J2L (Join-to-Leave) system for auto-banning users who leave within 24 hours
-* **Rep Management** — Automatic role assignment and removal for representatives
-* **Trap Channel** — Banning or kicking accounts that post in a designated trap channel for spam/scam detection
-* **Support Tickets** — Creating private ticket channels for user reports
+**Poll votes.** When a broadcast poll is used, the bot stores the user ID and the option chosen.
 
-## 4. Data Storage 
+**Usage data.** The bot may log errors and command names to help the developer fix problems. It does not log private message content outside of the ticket transcripts described above.
 
-### 4.1 Database Storage
-All data is stored securely in a private database. Data includes:
-* Server configurations (channels, roles, settings)
-* Advertisement tracking records (user mentions, message tracking)
-* Auto responder and Auto reaction configurations
-* Welcome message configurations
+The bot does not read messages in channels it is not configured for, except to check for auto-responder triggers and auto-reactions in the channels where those are set.
 
-### 4.2 Data Retention
-* **Permanent Data:** Server configurations, auto responder settings, auto reaction settings, welcome configurations.
-* **Advertisement Mentions:** Stored until the representative leaves the server or the ad is deleted.
-* **Command Cooldowns:** Automatically managed and deleted by the system.
+## 2. How we use the information
 
-## 5. Data Sharing 
-QuasarBot does NOT:
-* Sell your data to third parties
-* Share your data with advertisers
-* Use your data for purposes outside bot functionality
-* Export personal data without authorization
+We use this information only to run the bot's features: assigning roles, enforcing ad rules, moderating, sending welcome messages, sending setup reminders, running the daily ad scan, and handling support tickets.
 
-## 6. User Rights 
-Server administrators have the right to:
-* **View Configuration** — Check all server settings using the bot's configuration commands.
-* **Modify Settings** — Change any server configuration at any time.
-* **Reset Configuration** — Wipe all bot data for their server using the reset command.
-* **Remove Bot** — Kick the bot to stop all data collection for that server.
+We do not sell your information. We do not use it for advertising.
 
-The Bot Owner has the right to manage, export, and delete data in accordance with Discord's Developer Policies to ensure the ongoing stability of the bot.
+## 3. Direct messages
 
-## 7. Security 
-Security measures include:
-* Secure database connections
-* Secure environment variables for sensitive tokens
-* Input validation to prevent injection attacks
-* Rate limiting to prevent abuse
-* Permission checks for administrative commands
+The bot sends direct messages in these cases only:
+- To a server owner, when the server has not finished `/setup` (at most once every 3 days, and it stops if the owner presses **Stop**).
+- To a server owner, with a support server invite or ticket link when they open a ticket.
+- To a new member, only if a server admin has turned on the welcome DM option.
+- To a server owner, when the bot cannot perform an action such as missing permissions.
 
-## 8. Contact Information 
-If you have questions about this Privacy Policy, you can:
-* Use the `/report` command to open a support ticket in the official support server. 
+## 4. Backups
 
----
+The bot creates a daily backup of its database and sends it to the bot owner's private log channel. Backups contain the same information described in section 1.
 
-By using QuasarBot, you acknowledge that you have read and understood this Privacy Policy.
+## 5. How long we keep information
+
+- Server settings are kept until the server removes the bot or runs `/setup` and presses **Reset Configuration**.
+- Partnership records are removed when the ad is deleted, when the rep leaves the server, or when the server resets its settings.
+- Moderation records are kept for as long as the bot needs them to enforce server rules.
+- Ticket transcripts are kept in the owner log channel until the owner deletes them.
+- Daily backups are kept in the owner log channel until the owner deletes them.
+
+## 6. Sharing
+
+Information is shared only:
+- With Discord, as needed to run the bot.
+- With the bot's hosting provider, which stores the database and runs the bot.
+- If required by law.
+
+## 7. Your choices
+
+- **Server admins** can remove the bot, reset its settings with `/setup`, or delete individual ads and auto-responders.
+- **Members** can ask a server admin to remove their ad records.
+- **Anyone** can ask for their information to be deleted by contacting us through the support server listed below. We will delete records about you, except where we must keep them to follow the law or to protect the server.
+
+## 8. Children
+
+The bot is not intended for anyone under 13 years old, as required by Discord's terms of service.
+
+## 9. Security
+
+We take reasonable steps to protect stored information. No system is completely secure, so we cannot guarantee absolute security.
+
+## 10. Changes to this policy
+
+We may update this policy. The "Last updated" date at the top shows when it last changed. Continued use of the bot after an update means you accept the new policy.
+
+## 11. Contact
+
+For questions or deletion requests, join the support server: https://discord.gg/kXwAQRNq2d
