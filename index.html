@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuasarBot - The partnership bot for Discord</title>
+<meta name="description" content="QuasarBot checks partnership ads, gives your partner the Rep Role, and takes it back when the ad is deleted. Plus join protection, welcome messages, auto responders and more.">
+<meta name="theme-color" content="#1e1f22">
+<meta property="og:title" content="QuasarBot - The partnership bot for Discord">
+<meta property="og:description" content="Track partnership ads, manage your Rep Role and protect your server.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235865f2'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='8' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1e1f22;
+  --bg-2:#2b2d31;
+  --card:#313338;
+  --line:rgba(255,255,255,.08);
+  --text:#f2f3f5;
+  --muted:#b5bac1;
+  --blurple:#5865f2;
+  --blurple-hover:#4752c4;
+  --green:#23a559;
+  --red:#f23f43;
+  --head:"Poppins",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:6px}
+code{font:500 .88em ui-monospace,Menlo,Consolas,monospace;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:5px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;z-index:99;border-radius:6px}
+.skip:focus{left:8px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;cursor:pointer;border:0;border-radius:999px;font:600 1rem var(--body);padding:14px 26px;color:#fff;background:var(--blurple);transition:background .15s,transform .15s}
+.btn:hover{background:var(--blurple-hover);transform:translateY(-1px)}
+.btn--light{background:#fff;color:#1e1f22}
+.btn--light:hover{background:#e3e5e8}
+.btn--dark{background:#4e5058}
+.btn--dark:hover{background:#6d6f78}
+.btn--sm{padding:9px 18px;font-size:.92rem}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;background:rgba(30,31,34,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav__in{display:flex;align-items:center;gap:30px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.25rem var(--head)}
+.logo svg{width:34px;height:34px}
+.nav__links{display:flex;gap:26px;margin-left:10px}
+.nav__links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.98rem}
+.nav__links a:hover{color:#fff}
+.nav .btn{margin-left:auto}
+
+/* hero */
+.hero{position:relative;text-align:center;padding:84px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-220px;width:900px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(88,101,242,.4),transparent);pointer-events:none}
+.hero>.wrap{position:relative}
+.pill{display:inline-block;background:rgba(88,101,242,.18);color:#c9cdfb;border:1px solid rgba(88,101,242,.5);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:500;margin-bottom:22px}
+h1{font:800 clamp(2.4rem,6vw,4.2rem)/1.08 var(--head);margin:0 auto 20px;max-width:15em;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,#8d97ff,#c4a5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);font-size:1.2rem;max-width:36em;margin:0 auto 32px}
+.hero__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* demo */
+.demo{max-width:820px;margin:52px auto 0;text-align:left}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.tab{background:var(--bg-2);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:500 .92rem var(--body);cursor:pointer}
+.tab:hover{color:#fff;background:var(--card)}
+.tab[aria-pressed="true"]{background:var(--blurple);border-color:var(--blurple);color:#fff}
+.chat{background:#313338;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);border:1px solid var(--line)}
+.chat__bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(0,0,0,.3);background:#313338;font-weight:600}
+.chat__bar span{color:#80848e;margin-right:6px}
+.replay{background:none;border:0;color:#a9b0ff;cursor:pointer;font:500 .9rem var(--body)}
+.replay:hover{text-decoration:underline}
+.feed{height:340px;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px;background:#313338}
+.msg{display:flex;gap:14px;animation:in .2s ease-out both;transition:opacity .3s,transform .3s,max-height .3s .1s}
+.msg.gone{opacity:0;transform:translateX(-12px);max-height:0;overflow:hidden;margin:-7px 0}
+@keyframes in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 1rem var(--head);color:#111}
+.who{font-weight:600;margin-right:6px}
+.tag{background:var(--blurple);color:#fff;font:600 .65rem var(--body);padding:2px 5px;border-radius:4px;vertical-align:2px}
+.where{font-size:.78rem;color:#80848e;margin-left:8px}
+.msg p{margin:2px 0 0;font-size:.97rem;line-height:1.5;overflow-wrap:anywhere;color:#dbdee1}
+.mention{background:rgba(88,101,242,.3);color:#c9cdfb;padding:0 3px;border-radius:4px}
+.msg code{background:#1e1f22}
+.sys{align-self:center;font-size:.85rem;color:#80848e}
+.embed{margin-top:7px;border-left:4px solid var(--blurple);background:#2b2d31;border-radius:4px;padding:10px 14px;font-size:.93rem;max-width:440px}
+.embed.bad{border-color:var(--red)}
+.embed b{display:block;margin-bottom:4px}
+.embed i{font-style:normal;color:#949ba4;margin-right:6px}
+.chat__foot{padding:10px 18px;font-size:.82rem;color:#80848e;background:#2b2d31}
+
+/* sections */
+.sec{padding:96px 0}
+.sec--alt{background:var(--bg-2)}
+.sec__head{text-align:center;max-width:640px;margin:0 auto 52px}
+h2{font:700 clamp(1.8rem,4vw,2.6rem)/1.15 var(--head);margin:0 0 14px;letter-spacing:-.01em}
+.sec__head p{margin:0;color:var(--muted);font-size:1.08rem}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(88,101,242,.6)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(88,101,242,.2);color:#aab1ff;margin-bottom:16px}
+.card .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font:600 1.15rem var(--head);margin:0 0 8px}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--blurple);font:700 1rem var(--head);margin-bottom:16px}
+.step h3{margin:0 0 8px;font:600 1.15rem var(--head)}
+.step p{margin:0;color:var(--muted)}
+
+/* commands */
+.search{display:block;width:100%;max-width:460px;margin:0 auto 22px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:13px 20px;color:#fff;font:400 1rem var(--body)}
+.search::placeholder{color:#80848e}
+.cats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
+.cmds{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cmd{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.cmd[hidden]{display:none}
+.cmd button{flex:none;background:#1e1f22;color:#a9b0ff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:600 .9rem ui-monospace,Menlo,Consolas,monospace;cursor:pointer}
+.cmd button:hover{background:var(--blurple);color:#fff}
+.cmd p{margin:3px 0 0;color:var(--muted);font-size:.95rem}
+.cmd small{display:inline-block;margin-left:6px;color:#80848e;font-size:.78rem}
+.empty{display:none;text-align:center;color:var(--muted);margin-top:20px}
+
+/* perms */
+.perms{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:860px;margin:0 auto}
+.perm{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.perm b{display:block}
+.perm span{color:var(--muted);font-size:.95rem}
+.perm svg{flex:none;width:22px;height:22px;margin-top:2px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.note{max-width:860px;margin:18px auto 0;text-align:center;color:var(--muted)}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:#a9b0ff}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0;padding:0 22px 20px;color:var(--muted)}
+.faq a{color:#a9b0ff}
+
+/* cta + footer */
+.cta{text-align:center;background:linear-gradient(135deg,#5865f2,#7a5af8);border-radius:24px;padding:60px 24px}
+.cta h2{margin-bottom:12px}
+.cta p{margin:0 auto 26px;max-width:32em;color:rgba(255,255,255,.88)}
+footer{padding:60px 0 36px;border-top:1px solid var(--line);margin-top:96px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.foot p{color:var(--muted);font-size:.95rem;max-width:22em;margin:12px 0 0}
+.foot h4{margin:0 0 12px;font:600 .95rem var(--head)}
+.foot a{display:block;color:var(--muted);text-decoration:none;margin-bottom:8px;font-size:.95rem}
+.foot a:hover{color:#fff}
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:#80848e;font-size:.85rem}
+
+@media (max-width:900px){
+  .grid,.steps{grid-template-columns:1fr 1fr}
+  .cmds,.perms{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+  .nav__links{display:none}
+}
+@media (max-width:600px){
+  .grid,.steps{grid-template-columns:1fr}
+  .hero{padding-top:56px}
+  .sec{padding:68px 0}
+  .nav .btn{padding:9px 16px;font-size:.9rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="#top" aria-label="QuasarBot home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#5865f2"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#fff"/></svg>
+      QuasarBot
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#commands">Commands</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://discord.gg/kXwAQRNq2d">Support</a>
+    </nav>
+    <a class="btn btn--sm" data-invite href="https://discord.com/oauth2/authorize?client_id=956902107355689061&permissions=268823751&scope=bot%20applications.commands">Add to Discord</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="pill">Built for partnership servers</span>
+    <h1>The <span class="grad">partnership bot</span> for your Discord server</h1>
+    <p class="lead">Track partnership ads, give out your Rep Role automatically, and keep raiders and bot accounts out. Set it up in a few minutes.</p>
+    <div class="hero__cta">
+      <a class="btn" data-invite href="https://discord.com/oauth2/authorize?client_id=956902107355689061&permissions=268823751&scope=bot%20applications.commands">Add to Discord</a>
+      <a class="btn btn--dark" href="https://discord.gg/kXwAQRNq2d">Support server</a>
+    </div>
+
+    <div class="demo">
+      <div class="tabs" id="tabs" role="group" aria-label="Pick an example"></div>
+      <div class="chat">
+        <div class="chat__bar"><div><span>#</span><strong id="chan">partnerships</strong></div><button class="replay" id="replay" type="button">Replay</button></div>
+        <div class="feed" id="feed" role="log" aria-live="polite" aria-label="Example chat"></div>
+        <div class="chat__foot">Example only. The names and messages are made up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="features" aria-labelledby="f-h">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 id="f-h">Everything a partnership server needs</h2>
+      <p>One bot for ads, roles, protection and the small things around them.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div>
+        <h3>Partnership tracking</h3><p>Every ad is saved. Ads with no valid partner mention are removed, with a short note on how to fix them.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 11l2 2 4-4"/></svg></div>
+        <h3>Automatic Rep Role</h3><p>Partners get your Rep Role right away. Delete the ad and the role is removed, unless another ad still counts.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Join-and-leave protection</h3><p>Ban anyone who joins and leaves within 24 hours. Moderator kicks are left alone.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M4.9 4.9l14.2 14.2"/></svg></div>
+        <h3>Trap channel</h3><p>Pick a channel nobody should post in. Hacked accounts and spam bots that do get banned or kicked. Staff are exempt.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 3.9 11.5 8.5 8.5 0 0 1 12.4 3 8.4 8.4 0 0 1 21 11.5z"/></svg></div>
+        <h3>Welcome messages</h3><p>Greet new members in a channel, in DMs, or both. With Membership Screening, it waits until they accept the rules.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 10l-5 5 5 5"/><path d="M20 4v7a4 4 0 0 1-4 4H4"/></svg></div>
+        <h3>Auto responders</h3><p>Reply to trigger words in one channel or everywhere. Use variables like <code>{user}</code> and <code>{server}</code>.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+        <h3>Auto reactions</h3><p>Add emojis to every new message in a channel, great for polls and suggestions.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Daily scan</h3><p>Once a day the bot checks the ad channel again and fixes roles it missed. It follows your own timezone.</p></article>
+      <article class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h3>Full logs</h3><p>Partnerships logged, ads removed, bans made. Everything goes to the log channel you choose.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="how" aria-labelledby="h-h">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 id="h-h">Set up in three steps</h2>
+      <p>You need the Manage Server permission to add a bot.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Add QuasarBot</h3><p>Press Add to Discord, pick your server and approve the permissions.</p></div>
+      <div class="step"><h3>Run /setup</h3><p>Choose an ad channel, a Rep Role and a log channel. Put the bot's role above the Rep Role.</p></div>
+      <div class="step"><h3>Press Save Changes</h3><p>The bot tells you if a permission is missing. Run <code>/config</code> any time to check again.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="commands" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 id="c-h">Commands</h2>
+      <p>Click a command to copy it. Admin commands need the Manage Server permission.</p>
+    </div>
+    <input class="search" id="search" type="search" placeholder="Search commands" aria-label="Search commands">
+    <div class="cats" id="cats" role="group" aria-label="Filter by group">
+      <button class="tab" type="button" data-c="all" aria-pressed="true">All</button>
+      <button class="tab" type="button" data-c="setup" aria-pressed="false">Setup</button>
+      <button class="tab" type="button" data-c="ads" aria-pressed="false">Partnerships</button>
+      <button class="tab" type="button" data-c="community" aria-pressed="false">Community</button>
+      <button class="tab" type="button" data-c="util" aria-pressed="false">Utility</button>
+    </div>
+    <div class="cmds" id="cmds">
+      <div class="cmd" data-c="setup"><button type="button">/setup</button><div><b>Setup wizard</b><small>Admin</small><p>Channels, roles and protections. Nothing saves until you press Save Changes.</p></div></div>
+      <div class="cmd" data-c="setup"><button type="button">/config</button><div><b>View settings</b><small>Admin</small><p>Shows your settings and anything that needs fixing.</p></div></div>
+      <div class="cmd" data-c="setup"><button type="button">/timezone</button><div><b>Set timezone</b><small>Admin</small><p>Sets the time for the daily check, like <code>Asia/Manila</code>.</p></div></div>
+      <div class="cmd" data-c="ads"><button type="button">/post</button><div><b>Post an ad</b><p>Posts your ad, mentions your partner and gives them the Rep Role. One a minute.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/autoresponder</button><div><b>Auto responders</b><small>Admin</small><p>Add, edit, remove or list replies to trigger words.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/autoreact</button><div><b>Auto reactions</b><small>Admin</small><p>Pick emojis the bot adds to every new message in a channel.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/set-welcome</button><div><b>Set welcome message</b><small>Admin</small><p>Sets the welcome channel and message.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/test-welcome</button><div><b>Preview welcome</b><small>Admin</small><p>See the welcome message before anyone else does.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/welcome-config</button><div><b>Welcome settings</b><small>Admin</small><p>Shows your current welcome settings.</p></div></div>
+      <div class="cmd" data-c="community"><button type="button">/remove-welcome</button><div><b>Remove welcome</b><small>Admin</small><p>Turns welcome messages off.</p></div></div>
+      <div class="cmd" data-c="util"><button type="button">/help</button><div><b>Help menu</b><p>A guide for each feature.</p></div></div>
+      <div class="cmd" data-c="util"><button type="button">/invite</button><div><b>Invite the bot</b><p>Link to add QuasarBot to another server.</p></div></div>
+      <div class="cmd" data-c="util"><button type="button">/report</button><div><b>Get support</b><p>Opens a private ticket. Close it with <code>/close</code>.</p></div></div>
+      <div class="cmd" data-c="util"><button type="button">/vote</button><div><b>Vote</b><p>Vote for QuasarBot on top.gg.</p></div></div>
+      <div class="cmd" data-c="util"><button type="button">/about</button><div><b>About</b><p>Uptime, server count and legal links.</p></div></div>
+    </div>
+    <p class="empty" id="empty">No commands match your search.</p>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="permissions" aria-labelledby="p-h">
+  <div class="wrap">
+    <div class="sec__head">
+      <h2 id="p-h">Permissions, explained</h2>
+      <p>QuasarBot asks only for what it uses. It never asks for Administrator.</p>
+    </div>
+    <div class="perms">
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Manage Roles</b><span>Give and remove the Rep Role.</span></div></div>
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Manage Messages</b><span>Delete ads with no valid partner.</span></div></div>
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Ban and Kick Members</b><span>Join protection, the trap channel and rep leave action.</span></div></div>
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>View Audit Log</b><span>Tell a moderator's kick from someone leaving.</span></div></div>
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Read, Send, Embed, Attach, React</b><span>View channels and history, send messages, embed links, attach files, add reactions and use external emojis.</span></div></div>
+      <div class="perm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Create Invite</b><span>Lets the developer get in and help if something breaks.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="sec__head"><h2 id="q-h">Frequently asked questions</h2></div>
+    <div class="faq">
+      <details><summary>The Rep Role is not being given out</summary><p>Usually QuasarBot's own role sits below the Rep Role. Open Server Settings, then Roles, and drag QuasarBot above it. Run <code>/config</code> and it lists anything else that is wrong.</p></details>
+      <details><summary>Who can use the setup commands?</summary><p>The server owner and anyone with the Manage Server permission. Staff with Manage Messages are never counted as ad partners, and they are exempt from the trap channel.</p></details>
+      <details><summary>Do I have to use the bans?</summary><p>No. Join-and-leave protection is a switch in <code>/setup</code>, the trap channel only works if you pick one, and the rep leave action can just delete ads without banning.</p></details>
+      <details><summary>What happens if I remove the bot?</summary><p>QuasarBot deletes your server's settings, tracked ads, responders, reactions and welcome message.</p></details>
+      <details><summary>What data does it store?</summary><p>Your server's settings and the ads it tracks. Read the full details in the <a href="privacy.html">Privacy Policy</a>.</p></details>
+      <details><summary>Something is broken. Where do I get help?</summary><p>Run <code>/report</code> to open a private ticket, or ask in the <a href="https://discord.gg/kXwAQRNq2d">support server</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="cta">
+    <h2>Ready to tidy up your partnerships?</h2>
+    <p>Add QuasarBot to your server and run <code>/setup</code>.</p>
+    <a class="btn btn--light" data-invite href="https://discord.com/oauth2/authorize?client_id=956902107355689061&permissions=268823751&scope=bot%20applications.commands">Add to Discord</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top" style="display:flex;color:var(--text);margin:0">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#5865f2"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#fff"/></svg>
+          QuasarBot
+        </a>
+        <p>A Discord bot for partnership servers.</p>
+      </div>
+      <div><h4>Product</h4><a href="#features">Features</a><a href="#commands">Commands</a><a href="#faq">FAQ</a></div>
+      <div><h4>Community</h4><a href="https://discord.gg/kXwAQRNq2d">Support server</a><a href="https://top.gg/bot/956902107355689061/vote">Vote on top.gg</a></div>
+      <div><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    </div>
+    <div class="legal">QuasarBot is not affiliated with or endorsed by Discord Inc.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var feed = document.getElementById("feed"), tabsEl = document.getElementById("tabs"),
+      chan = document.getElementById("chan"), timers = [], current = 0;
+  var colors = ["#ffd23f","#ff9ec7","#7ee0c3","#ffb26b","#a9c4ff","#d6a8ff"];
+
+  function color(n){ var h=0; for (var i=0;i<n.length;i++) h=(h*31+n.charCodeAt(i))>>>0; return colors[h%colors.length]; }
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function fmt(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")
+    .replace(/@(\w+)/g,'<span class="mention">@$1</span>').replace(/\n/g,"<br>"); }
+
+  var scenes = [
+    {label:"Ad with no mention", chan:"partnerships", steps:[
+      {at:300,  add:{id:"a", who:"kiwi", text:"come join our gaming server!! we have events every week, link in bio"}},
+      {at:1900, gone:"a"},
+      {at:2300, add:{who:"QuasarBot", bot:1, text:"@kiwi **Your ad was removed.**\nYou didn't mention a valid user. Type `@` and pick them from the popup, or use `/post` and the bot will do it for you."}}
+    ]},
+    {label:"Using /post", chan:"partnerships", steps:[
+      {at:300,  sys:"kiwi used /post"},
+      {at:1100, add:{who:"QuasarBot", bot:1, text:"Only you can see this.", embed:{t:"Ad Posted", rows:[["Partner","@mango"],["Rep Role","granted"]]}}},
+      {at:2400, add:{who:"QuasarBot", bot:1, text:"> @mango\n\nWe run a small art server with weekly challenges. Come draw with us."}},
+      {at:3500, add:{who:"QuasarBot", bot:1, where:"in #mod-log", embed:{t:"Partnership Logged", rows:[["Author","@kiwi"],["Partnered With","@mango"]]}}}
+    ]},
+    {label:"Deleting an ad", chan:"partnerships", steps:[
+      {at:200,  add:{id:"b", who:"kiwi", text:"@mango partnered up with us! Weekly art challenges at their place."}},
+      {at:900,  sys:"mango has the Rep Role"},
+      {at:2400, gone:"b"},
+      {at:3000, add:{who:"QuasarBot", bot:1, where:"in #mod-log", embed:{bad:1, t:"Ad Removed", rows:[["Channel","#partnerships"],["Role removed from","@mango"]]}}}
+    ]},
+    {label:"Trap channel", chan:"do-not-type", steps:[
+      {at:300,  add:{who:"QuasarBot", bot:1, text:"**Do not post in this channel.** Anyone who does is banned automatically."}},
+      {at:1500, add:{id:"c", who:"free_gift_4u", text:"FREE GIFT CARDS click here now"}},
+      {at:2500, gone:"c"},
+      {at:3000, add:{who:"QuasarBot", bot:1, where:"in #mod-log", embed:{bad:1, t:"Trap Triggered", rows:[["User","@free_gift_4u"],["Action","Ban"]]}}}
+    ]}
+  ];
+
+  function build(m){
+    var row = document.createElement("div"); row.className = "msg";
+    var av = document.createElement("div"); av.className = "av"; av.style.background = color(m.who);
+    av.textContent = m.who.charAt(0).toUpperCase(); av.setAttribute("aria-hidden","true");
+    var main = document.createElement("div"); main.style.minWidth = 0; main.style.flex = 1;
+    var head = document.createElement("div");
+    head.innerHTML = '<span class="who">'+esc(m.who)+'</span>'+(m.bot?'<span class="tag">BOT</span>':'')+(m.where?'<span class="where">'+esc(m.where)+'</span>':'');
+    main.appendChild(head);
+    if (m.text){ var p = document.createElement("p"); p.innerHTML = fmt(m.text); main.appendChild(p); }
+    if (m.embed){
+      var e = document.createElement("div"); e.className = "embed"+(m.embed.bad?" bad":"");
+      var h = "<b>"+esc(m.embed.t)+"</b>";
+      m.embed.rows.forEach(function(r){ h += "<div><i>"+esc(r[0])+"</i>"+fmt(r[1])+"</div>"; });
+      e.innerHTML = h; main.appendChild(e);
+    }
+    row.appendChild(av); row.appendChild(main); return row;
+  }
+  function apply(s){
+    if (s.add){ var el = build(s.add); if (s.add.id) el.dataset.id = s.add.id; feed.appendChild(el); }
+    else if (s.sys){ var d = document.createElement("div"); d.className = "sys"; d.textContent = s.sys; feed.appendChild(d); }
+    else if (s.gone){ var t = feed.querySelector('[data-id="'+s.gone+'"]'); if (t){ t.classList.add("gone"); setTimeout(function(){ t.remove(); }, 600); } }
+    feed.scrollTop = feed.scrollHeight;
+  }
+  function play(i){
+    timers.forEach(clearTimeout); timers = []; current = i; feed.innerHTML = "";
+    chan.textContent = scenes[i].chan;
+    Array.prototype.forEach.call(tabsEl.children, function(b,n){ b.setAttribute("aria-pressed", n===i ? "true":"false"); });
+    scenes[i].steps.forEach(function(s){ if (reduce) apply(s); else timers.push(setTimeout(function(){ apply(s); }, s.at)); });
+  }
+  scenes.forEach(function(sc,i){
+    var b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.textContent = sc.label;
+    b.setAttribute("aria-pressed","false"); b.addEventListener("click", function(){ play(i); }); tabsEl.appendChild(b);
+  });
+  document.getElementById("replay").addEventListener("click", function(){ play(current); });
+  setTimeout(function(){ play(0); }, reduce ? 0 : 500);
+
+  /* commands: search, filter, copy */
+  var cmds = document.getElementById("cmds"), rows = cmds.querySelectorAll(".cmd"),
+      search = document.getElementById("search"), cats = document.getElementById("cats"),
+      empty = document.getElementById("empty"), cat = "all";
+  function filter(){
+    var q = search.value.trim().toLowerCase(), shown = 0;
+    Array.prototype.forEach.call(rows, function(r){
+      var ok = (cat === "all" || r.dataset.c === cat) && (!q || r.textContent.toLowerCase().indexOf(q) !== -1);
+      r.hidden = !ok; if (ok) shown++;
+    });
+    empty.style.display = shown ? "none" : "block";
+  }
+  search.addEventListener("input", filter);
+  cats.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-c]"); if (!b) return;
+    cat = b.dataset.c;
+    Array.prototype.forEach.call(cats.children, function(x){ x.setAttribute("aria-pressed", x === b ? "true":"false"); });
+    filter();
+  });
+  cmds.addEventListener("click", function(e){
+    var b = e.target.closest(".cmd button"); if (!b) return;
+    var t = b.dataset.t || b.textContent; b.dataset.t = t;
+    function done(){ b.textContent = "Copied"; setTimeout(function(){ b.textContent = t; }, 1000); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, done);
+    else { var ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); }catch(_){} ta.remove(); done(); }
+  });
+})();
+</script>
+</body>
+</html>
