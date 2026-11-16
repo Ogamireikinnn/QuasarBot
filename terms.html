@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuasarBot Terms of Use - QuasarBot</title>
+<meta name="description" content="The rules for using QuasarBot.">
+<meta name="theme-color" content="#1e1f22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235865f2'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='8' fill='none' stroke='%23fff' stroke-width='4' transform='rotate(-25 32 32)'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1e1f22;
+  --bg-2:#2b2d31;
+  --card:#313338;
+  --line:rgba(255,255,255,.08);
+  --text:#f2f3f5;
+  --muted:#b5bac1;
+  --blurple:#5865f2;
+  --blurple-hover:#4752c4;
+  --green:#23a559;
+  --red:#f23f43;
+  --head:"Poppins",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:6px}
+code{font:500 .88em ui-monospace,Menlo,Consolas,monospace;background:rgba(255,255,255,.1);padding:2px 6px;border-radius:5px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;z-index:99;border-radius:6px}
+.skip:focus{left:8px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;cursor:pointer;border:0;border-radius:999px;font:600 1rem var(--body);padding:14px 26px;color:#fff;background:var(--blurple);transition:background .15s,transform .15s}
+.btn:hover{background:var(--blurple-hover);transform:translateY(-1px)}
+.btn--light{background:#fff;color:#1e1f22}
+.btn--light:hover{background:#e3e5e8}
+.btn--dark{background:#4e5058}
+.btn--dark:hover{background:#6d6f78}
+.btn--sm{padding:9px 18px;font-size:.92rem}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;background:rgba(30,31,34,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav__in{display:flex;align-items:center;gap:30px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.25rem var(--head)}
+.logo svg{width:34px;height:34px}
+.nav__links{display:flex;gap:26px;margin-left:10px}
+.nav__links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.98rem}
+.nav__links a:hover{color:#fff}
+.nav .btn{margin-left:auto}
+
+/* hero */
+.hero{position:relative;text-align:center;padding:84px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-220px;width:900px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(88,101,242,.4),transparent);pointer-events:none}
+.hero>.wrap{position:relative}
+.pill{display:inline-block;background:rgba(88,101,242,.18);color:#c9cdfb;border:1px solid rgba(88,101,242,.5);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:500;margin-bottom:22px}
+h1{font:800 clamp(2.4rem,6vw,4.2rem)/1.08 var(--head);margin:0 auto 20px;max-width:15em;letter-spacing:-.02em}
+.grad{background:linear-gradient(90deg,#8d97ff,#c4a5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);font-size:1.2rem;max-width:36em;margin:0 auto 32px}
+.hero__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* demo */
+.demo{max-width:820px;margin:52px auto 0;text-align:left}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:16px}
+.tab{background:var(--bg-2);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:500 .92rem var(--body);cursor:pointer}
+.tab:hover{color:#fff;background:var(--card)}
+.tab[aria-pressed="true"]{background:var(--blurple);border-color:var(--blurple);color:#fff}
+.chat{background:#313338;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);border:1px solid var(--line)}
+.chat__bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid rgba(0,0,0,.3);background:#313338;font-weight:600}
+.chat__bar span{color:#80848e;margin-right:6px}
+.replay{background:none;border:0;color:#a9b0ff;cursor:pointer;font:500 .9rem var(--body)}
+.replay:hover{text-decoration:underline}
+.feed{height:340px;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px;background:#313338}
+.msg{display:flex;gap:14px;animation:in .2s ease-out both;transition:opacity .3s,transform .3s,max-height .3s .1s}
+.msg.gone{opacity:0;transform:translateX(-12px);max-height:0;overflow:hidden;margin:-7px 0}
+@keyframes in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 1rem var(--head);color:#111}
+.who{font-weight:600;margin-right:6px}
+.tag{background:var(--blurple);color:#fff;font:600 .65rem var(--body);padding:2px 5px;border-radius:4px;vertical-align:2px}
+.where{font-size:.78rem;color:#80848e;margin-left:8px}
+.msg p{margin:2px 0 0;font-size:.97rem;line-height:1.5;overflow-wrap:anywhere;color:#dbdee1}
+.mention{background:rgba(88,101,242,.3);color:#c9cdfb;padding:0 3px;border-radius:4px}
+.msg code{background:#1e1f22}
+.sys{align-self:center;font-size:.85rem;color:#80848e}
+.embed{margin-top:7px;border-left:4px solid var(--blurple);background:#2b2d31;border-radius:4px;padding:10px 14px;font-size:.93rem;max-width:440px}
+.embed.bad{border-color:var(--red)}
+.embed b{display:block;margin-bottom:4px}
+.embed i{font-style:normal;color:#949ba4;margin-right:6px}
+.chat__foot{padding:10px 18px;font-size:.82rem;color:#80848e;background:#2b2d31}
+
+/* sections */
+.sec{padding:96px 0}
+.sec--alt{background:var(--bg-2)}
+.sec__head{text-align:center;max-width:640px;margin:0 auto 52px}
+h2{font:700 clamp(1.8rem,4vw,2.6rem)/1.15 var(--head);margin:0 0 14px;letter-spacing:-.01em}
+.sec__head p{margin:0;color:var(--muted);font-size:1.08rem}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(88,101,242,.6)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(88,101,242,.2);color:#aab1ff;margin-bottom:16px}
+.card .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font:600 1.15rem var(--head);margin:0 0 8px}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--blurple);font:700 1rem var(--head);margin-bottom:16px}
+.step h3{margin:0 0 8px;font:600 1.15rem var(--head)}
+.step p{margin:0;color:var(--muted)}
+
+/* commands */
+.search{display:block;width:100%;max-width:460px;margin:0 auto 22px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:13px 20px;color:#fff;font:400 1rem var(--body)}
+.search::placeholder{color:#80848e}
+.cats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
+.cmds{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cmd{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.cmd[hidden]{display:none}
+.cmd button{flex:none;background:#1e1f22;color:#a9b0ff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:600 .9rem ui-monospace,Menlo,Consolas,monospace;cursor:pointer}
+.cmd button:hover{background:var(--blurple);color:#fff}
+.cmd p{margin:3px 0 0;color:var(--muted);font-size:.95rem}
+.cmd small{display:inline-block;margin-left:6px;color:#80848e;font-size:.78rem}
+.empty{display:none;text-align:center;color:var(--muted);margin-top:20px}
+
+/* perms */
+.perms{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:860px;margin:0 auto}
+.perm{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.perm b{display:block}
+.perm span{color:var(--muted);font-size:.95rem}
+.perm svg{flex:none;width:22px;height:22px;margin-top:2px;stroke:var(--green);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.note{max-width:860px;margin:18px auto 0;text-align:center;color:var(--muted)}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:#a9b0ff}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin:0;padding:0 22px 20px;color:var(--muted)}
+.faq a{color:#a9b0ff}
+
+/* cta + footer */
+.cta{text-align:center;background:linear-gradient(135deg,#5865f2,#7a5af8);border-radius:24px;padding:60px 24px}
+.cta h2{margin-bottom:12px}
+.cta p{margin:0 auto 26px;max-width:32em;color:rgba(255,255,255,.88)}
+footer{padding:60px 0 36px;border-top:1px solid var(--line);margin-top:96px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.foot p{color:var(--muted);font-size:.95rem;max-width:22em;margin:12px 0 0}
+.foot h4{margin:0 0 12px;font:600 .95rem var(--head)}
+.foot a{display:block;color:var(--muted);text-decoration:none;margin-bottom:8px;font-size:.95rem}
+.foot a:hover{color:#fff}
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:#80848e;font-size:.85rem}
+
+
+.doc{max-width:780px;margin:0 auto;padding:56px 24px 40px}
+.doc h1{font:800 clamp(2rem,5vw,3rem)/1.1 var(--head);margin:0 0 8px;letter-spacing:-.02em}
+.doc .upd{color:var(--muted);margin:0 0 32px}
+.doc h2{font:700 1.35rem/1.3 var(--head);margin:38px 0 10px}
+.doc p,.doc li{color:#dbdee1}
+.doc ul{padding-left:1.3em}
+.doc li{margin:0 0 8px}
+.doc a{color:#a9b0ff}
+.doc strong{color:#fff}
+footer{margin-top:60px}
+@media (max-width:900px){.nav__links{display:none}.foot{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="index.html" aria-label="QuasarBot home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#5865f2"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#fff"/></svg>QuasarBot</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#commands">Commands</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://discord.gg/kXwAQRNq2d">Support</a>
+    </nav>
+    <a class="btn btn--sm" href="https://discord.com/oauth2/authorize?client_id=956902107355689061&amp;permissions=268823751&amp;scope=bot%20applications.commands">Add to Discord</a>
+  </div>
+</header>
+<main id="main" class="doc">
+<h1>QuasarBot Terms of Use</h1>
+<p class="upd">Last updated: November 16, 2026</p>
+<p>These terms apply when you add or use QuasarBot ("the bot"). By using the bot, you agree to them. If you do not agree, please do not use the bot. If you add the bot to a server, you confirm that you have the right to do so and that you accept these terms for that server.</p>
+<p>Questions? Join the support server: <a href="https://discord.gg/kXwAQRNq2d">https://discord.gg/kXwAQRNq2d</a></p>
+<h2>1. What the bot does</h2>
+<p>QuasarBot is a Discord bot for partnership servers. It tracks partnership ads, gives and removes a Rep Role, can ban or kick members automatically (join-and-leave protection, trap channel, rep leave action), and offers welcome messages, auto responders and auto reactions. The exact features can change over time.</p>
+<h2>2. Follow the rules</h2>
+<p>You must follow:</p>
+<ul><li>The <a href="https://discord.com/terms">Discord Terms of Service</a> and <a href="https://discord.com/guidelines">Community Guidelines</a></li><li>The law that applies to you</li><li>These terms</li></ul>
+<p>You must not:</p>
+<ul><li>Use the bot to harass, scam, spam, or harm people</li><li>Try to break, overload, or hack the bot, or look for ways around its limits</li><li>Use the bot to collect personal data about people</li><li>Copy, resell or run your own version of the bot's hosted service</li><li>Use the bot in a server that breaks Discord's rules</li></ul>
+<h2>3. Server admins are responsible</h2>
+<p>Server admins decide how the bot is set up. That includes:</p>
+<ul><li>Which channels and roles it uses</li><li>Whether it bans or kicks members automatically</li><li>What it does when a rep leaves</li></ul>
+<p><strong>Automatic actions can affect real people.</strong> The bot can ban or kick members and delete messages without anyone checking each case first. Admins are responsible for the settings they choose and for the results. Please test your setup, read the setup text carefully, and make sure your members know the rules, for example not to post in a trap channel. The developer is not responsible for a ban or kick that happened because of how a server was set up, or because of a bot permission or role problem.</p>
+<h2>4. Permissions and role order</h2>
+<p>The bot only works as expected if it has the permissions it needs, and its role is placed above the Rep Role. If permissions are removed or roles are arranged wrongly, some features will stop working. Use <code>/config</code> to check.</p>
+<h2>5. Your data</h2>
+<p>How the bot handles data is explained in the <a href="privacy.html">Privacy Policy</a>. By using the bot, you agree to it.</p>
+<h2>6. Availability and changes</h2>
+<p>The bot is provided for free, and it may go offline, have bugs, or lose data. Features may be changed, added or removed at any time. The developer does not promise any level of uptime. Keep your own record of anything important, such as who your partners are.</p>
+<h2>7. Removing access</h2>
+<p>The developer may stop the bot from working in a server, or for a user, at any time and without notice, for example if these terms are broken, the bot is being abused, or the server breaks Discord's rules. You can stop using the bot at any time by removing it from your server.</p>
+<h2>8. No warranty</h2>
+<p>The bot is provided <strong>"as is" and "as available"</strong>, without any promise that it will be correct, reliable, secure, or fit for a particular purpose. Use it at your own risk.</p>
+<h2>9. Limit of liability</h2>
+<p>To the fullest extent the law allows, the developer is not responsible for any loss or damage that comes from using the bot or not being able to use it. This includes lost data, lost roles, lost members, wrongly removed messages, wrongly banned or kicked members, and loss of reputation or income. If the law does not allow a limit, the developer's responsibility is limited to the smallest amount the law allows.</p>
+<h2>10. Ownership</h2>
+<p>The bot, its code, name and design belong to the developer. These terms do not give you any ownership of them. You keep ownership of your own content. By using the bot, you allow it to process that content as needed to provide its features.</p>
+<h2>11. Changes to these terms</h2>
+<p>These terms may change. The date at the top shows the latest version. For important changes, the developer will announce them in the support server or through the bot. If you keep using the bot after a change, you accept the new terms.</p>
+<h2>12. Governing law</h2>
+<p>These terms are governed by the laws of [YOUR COUNTRY], without regard to conflict of law rules. Any dispute will be handled in the courts of [YOUR COUNTRY], unless local law gives you the right to use a different court.</p>
+<h2>13. Contact</h2>
+<p>Support server: <a href="https://discord.gg/kXwAQRNq2d">https://discord.gg/kXwAQRNq2d</a></p>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="logo" href="index.html" style="display:flex;color:var(--text);margin:0"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#5865f2"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 32 32)"/><circle cx="32" cy="32" r="8" fill="#fff"/></svg>QuasarBot</a><p>A Discord bot for partnership servers.</p></div>
+      <div><h4>Product</h4><a href="index.html#features">Features</a><a href="index.html#commands">Commands</a><a href="index.html#faq">FAQ</a></div>
+      <div><h4>Community</h4><a href="https://discord.gg/kXwAQRNq2d">Support server</a><a href="https://top.gg/bot/956902107355689061/vote">Vote on top.gg</a></div>
+      <div><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    </div>
+    <div class="legal">QuasarBot is not affiliated with or endorsed by Discord Inc.</div>
+  </div>
+</footer>
+</body>
+</html>
